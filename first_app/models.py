@@ -20,5 +20,5 @@ class Course(models.Model):
     marks = models.IntegerField()
 
     def __str__(self) -> str:
-        # return f'{self.name}- marks: {self.marks}'
-        return self.name
+        return f'{self.name}- marks: {self.marks}'
+        # return self.name

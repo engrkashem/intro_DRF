@@ -10,7 +10,13 @@ class CourseSerializers(serializers.ModelSerializer):
 
 class StudentSerializers(serializers.ModelSerializer):
     # course = serializers.StringRelatedField(many=True)
-    course = CourseSerializers(many=True)
+    # course = serializers.PrimaryKeyRelatedField(many=True)
+    # course = CourseSerializers(many=True)
+    course = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='course_details'
+    )
 
     class Meta:
         model = StudentModel
